@@ -11,6 +11,7 @@ class Node:
         self.color = color
         self.id = str(uuid.uuid4())
 
+
 def add_edges(graph, node, pos, x=0, y=0, layer=1):
     if node is not None:
         graph.add_node(node.id, color=node.color, label=node.val)
@@ -25,6 +26,7 @@ def add_edges(graph, node, pos, x=0, y=0, layer=1):
             pos[node.right.id] = (r, y - 1)
             r = add_edges(graph, node.right, pos, x=r, y=y - 1, layer=layer + 1)
     return graph
+
 
 def draw_tree(tree_root, bfs_nodes, dfs_nodes):
     tree = nx.DiGraph()
